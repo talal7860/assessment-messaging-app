@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :chatroom_id)
   end
 
   def wrap_message(message)

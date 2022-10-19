@@ -1,0 +1,9 @@
+<div class="ui inverted segment">
+  <%= form_with(model: @chatroom, class: "ui inverted form", local: true,  data: { turbo: false}) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br/>
+      <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Name of chatroom" %>
+    </div>
+    <%= f.submit class: "ui submit button" %>
+  <% end %>
+</div>

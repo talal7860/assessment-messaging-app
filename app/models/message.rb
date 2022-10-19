@@ -3,4 +3,5 @@ class Message < ApplicationRecord
     validates :user_id, presence: true
     
     belongs_to :user
+    belongs_to :chatroom
 end

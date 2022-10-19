@@ -1,13 +1,13 @@
 <h4 class="ui center aligned medium icon header">
   <i class="circular blue braille icon"></i>
-  Chatroom X
+  Chatroom <%= @chatroom.name %>
 </h4>
 <div class="ui one column grid centered">
   <div class="row">
     <div class="six wide column">
       <div class="ui fluid raised card">
         <div class="content">
-          <p> <b><%= @users.count %> Users in room</b> </p>
+          <p> <b><%= pluralize(@users.count, 'User') %> in room</b> </p>
           <div class="ui list">
             <%= render @users %>
           </div>
@@ -24,10 +24,11 @@
           </div>
         </div>
         <div class="extra content">
-          <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+          <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
             <div class="field">
               <div class="ui fluid icon input">
                 <%= f.text_field :body, placeholder: "Type your message here" %>
+                <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
                 <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe, id: 'submit_msg' %>
               </div>
             </div>

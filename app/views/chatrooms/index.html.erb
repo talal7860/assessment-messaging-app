@@ -1,0 +1,20 @@
+<h4 class="ui center aligned medium icon header">
+  <i class="circular blue braille icon"></i>
+  Chatrooms
+</h4>
+<div class="ui one column grid centered">
+  <div class="row">
+    <div class="six wide column">
+      <%= render 'form' %>
+      <% if @chatrooms.any? %>
+        <div class="ui fluid raised card">
+          <div class="content">
+            <div class="ui list">
+              <%= render @chatrooms %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
