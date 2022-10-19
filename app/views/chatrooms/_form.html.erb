@@ -1,5 +1,5 @@
 <div class="ui inverted segment">
-  <%= form_with(model: @chatroom, class: "ui inverted form", local: true,  data: { turbo: false}) do |f| %>
+  <%= form_with(model: @chatroom, class: "ui inverted form", local: true,  data: { turbo: true}) do |f| %>
     <div class="field">
       <%= f.label :name %><br/>
       <%= f.text_field :name, class: "form-control shadow rounded", placeholder: "Name of chatroom" %>

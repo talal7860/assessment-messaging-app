@@ -4,7 +4,6 @@ import "@hotwired/turbo-rails";
 import "controllers";
 import "channels";
 
-//= require jquery
 //= require turbolinks
 //= require semantic-ui
 
