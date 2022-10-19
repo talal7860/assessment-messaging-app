@@ -4,16 +4,16 @@
 </h4>
 <div class="ui two grid">
   <div class="twelve wide column">
-    <div class="ui fluid raised card chatbox" bis_skin_checked="1">
-      <div class="content" bis_skin_checked="1">
-        <div class="ui small feed" bis_skin_checked="1">
+    <div class="ui fluid raised card chatbox">
+      <div class="content chatroom">
+        <div class="ui small feed" id="chatbox">
           <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
-          <div class="field" bis_skin_checked="1">
-            <div class="ui fluid icon input" bis_skin_checked="1">
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+          <div class="field">
+            <div class="ui fluid icon input">
               <%= f.text_field :body, placeholder: "Type your message here" %>
               <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe %>
             </div>
@@ -23,9 +23,9 @@
     </div>
   </div>
   <div class="four wide column">
-    <div class="ui fluid raised card chatbox" bis_skin_checked="1">
-      <div class="content" bis_skin_checked="1">
-        <div class="ui inverted vertical menu" bis_skin_checked="1">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui inverted vertical menu">
           <a class="active item">
             Home
           </a>
