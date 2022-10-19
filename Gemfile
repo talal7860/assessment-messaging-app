@@ -73,3 +73,4 @@ end
 
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
+gem 'byebug'

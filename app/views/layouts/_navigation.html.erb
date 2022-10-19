@@ -1,14 +1,18 @@
 <div class="ui small inverted menu">
   <div class="ui container">
     <%= link_to "Chatrooms", root_path, class: "item"%>
-    <%= link_to "Login", login_path, class: "item"%>
     <div class="right menu">
-      <div class="ui dropdown item">
-        Afzal Ali <i class="dropdown icon"></i>
-      </div>
-      <div class="item">
-        <div class="ui primary button">Sign Up</div>
-      </div>
+      <% if logged_in? %>
+        <div class="ui dropdown item">
+          Afzal Ali <i class="dropdown icon"></i>
+        </div>
+        <%= button_to "Logout", logout_path, class: "item", method: :delete%>
+      <% else %>
+        <%= link_to "Login", login_path, class: "item"%>
+        <div class="item">
+          <div class="ui primary button">Sign Up</div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
