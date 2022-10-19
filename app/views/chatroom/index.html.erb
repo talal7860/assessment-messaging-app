@@ -1,40 +1,37 @@
 <h4 class="ui center aligned medium icon header">
   <i class="circular blue braille icon"></i>
-  Say Something
+  Chatroom X
 </h4>
-<div class="ui two grid">
-  <div class="twelve wide column">
-    <div class="ui fluid raised card chatbox">
-      <div class="content chatroom">
-        <div class="ui small feed" id="chatbox">
-          <%= render @messages %>
-        </div>
-      </div>
-      <div class="extra content">
-        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
-          <div class="field">
-            <div class="ui fluid icon input">
-              <%= f.text_field :body, placeholder: "Type your message here" %>
-              <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe, id: 'submit_msg' %>
-            </div>
+<div class="ui one column grid centered">
+  <div class="row">
+    <div class="six wide column">
+      <div class="ui fluid raised card">
+        <div class="content">
+          <p> <b><%= @users.count %> Users in room</b> </p>
+          <div class="ui list">
+            <%= render @users %>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="four wide column">
-    <div class="ui fluid raised card chatbox">
-      <div class="content">
-        <div class="ui inverted vertical menu">
-          <a class="active item">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item">
-            Friends
-          </a>
+  <div class="row">
+    <div class="six wide column">
+      <div class="ui fluid raised card chatbox">
+        <div class="content chatroom">
+          <div class="ui small feed" id="chatbox">
+            <%= render @messages %>
+          </div>
+        </div>
+        <div class="extra content">
+          <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
+            <div class="field">
+              <div class="ui fluid icon input">
+                <%= f.text_field :body, placeholder: "Type your message here" %>
+                <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe, id: 'submit_msg' %>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
