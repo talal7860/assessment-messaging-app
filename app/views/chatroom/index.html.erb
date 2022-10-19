@@ -11,14 +11,14 @@
         </div>
       </div>
       <div class="extra content">
-        <form class="ui reply form">
+        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
           <div class="field" bis_skin_checked="1">
             <div class="ui fluid icon input" bis_skin_checked="1">
-              <input type="text" placeholder="Type your message here">
-              <i class="bordered inverted blue send icon"></i>
+              <%= f.text_field :body, placeholder: "Type your message here" %>
+              <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe %>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
