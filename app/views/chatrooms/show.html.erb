@@ -16,25 +16,55 @@
     </div>
   </div>
   <div class="row">
-    <div class="six wide column">
+    <div class="twelve wide column">
       <div class="ui fluid raised card chatbox">
         <div class="content chatroom">
           <div class="ui small feed" id="chatbox">
             <%= render @messages %>
           </div>
         </div>
+      </div>
         <div class="extra content">
           <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
             <div class="field">
               <div class="ui fluid icon input">
-                <%= f.text_field :body, placeholder: "Type your message here" %>
+                <%= f.text_field :body, placeholder: "Type your message here", class: "text_field_#{current_user.id}" %>
                 <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
-                <%= f.button '<i class="bordered inverted blue send icon"></i>'.html_safe, id: 'submit_msg' %>
+                <%= f.submit 'Send'.html_safe, id: 'submit_msg', class: "hidden" %>
               </div>
             </div>
           <% end %>
         </div>
-      </div>
     </div>
   </div>
 </div>
+<script>
+  tinymce.init({
+    selector: "#message_body",
+    plugins: 'a_tinymce_plugin',
+    // plugins: "emoticons",
+    // toolbar: "emoticons",
+    toolbar_location: "bottom",
+    menubar: false,
+    height: "100px",
+    plugins: "link lists emoticons image autoresize",
+    autoresize_bottom_margin: 0,
+    max_height: 500,
+    width: '100%',
+    statusbar: false,
+    skin: "borderless",
+    placeholder: "Enter message . . .",
+    toolbar: "bold italic strikethrough link numlist bullist blockquote emoticons image | mySendButton",
+    icons: "small",
+    setup: function (editor) {
+      editor.ui.registry.addButton("mySendButton", {
+        tooltip: "Send Message",
+        text: "Send",
+        onAction: function () {
+          $('#submit_msg').trigger('click');
+          editor.resetContent();
+        },
+      });
+    },
+  });
+</script>

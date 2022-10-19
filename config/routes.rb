@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "chatrooms#index"
-  resources 'chatrooms'
-  post 'message', to: 'messages#create'
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  resources "chatrooms"
+  get "health_check", to: "health_check#index"
+  post "message", to: "messages#create"
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
 
-  mount ActionCable.server, at: '/cable'
+  mount ActionCable.server, at: "/cable"
 end
