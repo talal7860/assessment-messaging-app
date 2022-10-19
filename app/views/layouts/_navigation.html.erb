@@ -3,7 +3,7 @@
     <%= link_to "Chatrooms", root_path, class: "item"%>
     <div class="right menu">
       <% if logged_in? %>
-        <div class="ui dropdown item">
+        <div class="item">
           Afzal Ali <i class="dropdown icon"></i>
         </div>
         <%= button_to "Logout", logout_path, class: "item", method: :delete%>

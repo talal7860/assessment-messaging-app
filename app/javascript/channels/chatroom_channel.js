@@ -10,7 +10,7 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 
   received(data) {
-    console.log("msg received", data.msg);
     $("#chatbox").append(data.msg);
+    scroll_bottom();
   },
 });
