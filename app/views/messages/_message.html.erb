@@ -1,7 +1,7 @@
 <div class="event" bis_skin_checked="1">
   <div class="content" bis_skin_checked="1">
     <div class="summary" bis_skin_checked="1">
-      <a><%= message.user.username %></a>:  <%= message.body %>
+      <a><%= message.user.username %></a>:  <%= message.body.html_safe %>
     </div>
   </div>
 </div>

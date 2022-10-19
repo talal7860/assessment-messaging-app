@@ -2,8 +2,8 @@ class CreateMessages < ActiveRecord::Migration[7.0]
   def change
     create_table :messages do |t|
       t.text :body
-      t.integer :user_id
-      t.integer :chatroom_id
+      t.bigint :user_id, index: true
+      t.bigint :chatroom_id, index: true
 
       t.timestamps
     end

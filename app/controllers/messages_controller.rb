@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   def create
     message = current_user.messages.build(message_params)
     if message.save
-      ActionCable.server.broadcast "chatroom_channel", {msg: wrap_message(message)}
+      ActionCable.server.broadcast "chatroom_channel", {msg: wrap_message(message), sent_by_id: current_user.id}
     end
   end
 
@@ -15,7 +15,6 @@ class MessagesController < ApplicationController
   end
 
   def wrap_message(message)
-    render(partial: 'message', locals: {message: message})
+    render(partial: "message", locals: {message: message})
   end
-
 end
