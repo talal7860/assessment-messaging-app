@@ -42,3 +42,14 @@ $ docker compose up
 ```
 
 - Now application can be accessed at http://localhost:4000
+
+## Sample users
+
+We have added some sample users, all of them have the password `secret`.
+
+Users list (username)
+- john
+- dan
+- paul
+- dona
+- lisa
