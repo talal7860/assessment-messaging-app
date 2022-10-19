@@ -1,24 +1,44 @@
-# README
+# Take Home Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![CI](https://github.com/talal7860/assessment-messaging-app/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/talal7860/assessment-messaging-app/actions/workflows/rubyonrails.yml)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+[![Gem Version](https://badge.fury.io/rb/bundler-audit.svg)](https://badge.fury.io/rb/bundler-audit)
+## About
 
-Things you may want to cover:
+Take home is a simple lightweight community platform that allows people to create & join “Groups”. A group can either be
+Public(anyone can join) or Private(people can request to join but they have to be accepted by the creator). Users can join multiple groups and create posts on groups they’re a member of, Other members can join the discussion by commenting on a post and reply to comments. The creator of group can modify or delete groups, posts and comments. He can also remove members that currently have access to group.
 
-* Ruby version
+## Technologies Used
 
-* System dependencies
+- Rails 7
+- Stimulus
+- ActionCable/WebSockets
 
-* Configuration
+## Instalation Guidelines
 
-* Database creation
+### With local ruby version
+Please follow the steps to setup project locally:
 
-* Database initialization
+- Make sure you have ruby-3.1.2 installed. Or use rvm to configure it.
 
-* How to run the test suite
+- Take pull from repo
 
-* Services (job queues, cache servers, search engines, etc.)
+- Copy .env.example to .env
+  update the DB connection
 
-* Deployment instructions
+- Run Following commands
 
-* ...
+```bash
+$ bundle install
+$ rails db:setup
+./bin/dev
+```
+
+### Setup via docker
+```bash
+$ docker compose build
+$ docker compose run --rm app bin/rake db:setup
+$ docker compose up
+```
+
+- Now application can be accessed at http://localhost:4000
