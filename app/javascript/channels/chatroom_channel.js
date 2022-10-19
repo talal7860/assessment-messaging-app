@@ -1,6 +1,6 @@
-import consumer from "channels/consumer";
+import consumer from 'channels/consumer';
 
-consumer.subscriptions.create("ChatroomChannel", {
+consumer.subscriptions.create('ChatroomChannel', {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -10,8 +10,13 @@ consumer.subscriptions.create("ChatroomChannel", {
   },
 
   received(data) {
-    console.log("broadcasted message", data.msg);
-    $("#chatbox").append(data.msg);
-    scroll_bottom();
+    console.log('broadcasted message', data.msg);
+    $('#chatbox').append(data.msg);
+    // scroll_bottom();
+  },
+
+  scroll_bottom() {
+    if ($('#chatroom').length > 0)
+      $('#chatroom').scrollTop($('#chatroom')[0].scrollHeight);
   },
 });
